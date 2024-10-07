@@ -15,7 +15,7 @@ def manage_tasks():
     except FileNotFoundError:
         tasks = {}
 
-    # Auto update tasks with 'completed' field before managing
+    # Auto update tasks with 'completed' field after loading
     update_tasks()
 
     while True:
