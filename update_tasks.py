@@ -9,7 +9,7 @@ def update_tasks():
         with open("tasks.json", "r", encoding="utf-8") as json_file:
             tasks = json.load(json_file)
 
-        # Add 'completed'
+        # Add 'completed', don't overwrite existing mark
         for task in tasks.values():
             if "completed" not in task:
                 task["completed"] = False

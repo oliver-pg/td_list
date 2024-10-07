@@ -10,6 +10,7 @@ def add_task(tasks):
         "description": input("Enter task description: "),
         "due_date": input("Enter due date: "),
         "priority": input("Enter task priority: "),
+        "completed": False,
     }
 
     tasks[new_task_title] = new_task_details

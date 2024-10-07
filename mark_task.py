@@ -12,7 +12,8 @@ def mark_task(tasks):
     print("Mark a task as complete:")
     for i, title in enumerate(tasks, 1):
         print(
-            f"{i}:. {title} - {'Completed' if tasks[title].get("completed", False) else 'Incomplete'}"
+            f"{i}:. {title} - "
+            f"{'Completed' if tasks[title].get("completed", False) else 'Incomplete'}"
         )
 
     task_num = input("Enter the number of the task to mark as complete: ").strip()
@@ -25,6 +26,7 @@ def mark_task(tasks):
         print(f"Task '{task_title}' marked as complete.")
     except (ValueError, IndexError):
         print("Invalid task number. Please try again.")
+        return
 
         # Save marked tasks
         with open("tasks.json", "w", encoding="utf-8") as json_file:
