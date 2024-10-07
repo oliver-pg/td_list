@@ -39,8 +39,8 @@ def delete_task(tasks):
         print("Invalid task number. Please try again.")
     except KeyError:
         print("Error: Task not found.")
-    except Exception as e:
-        print(f"Unexpected error: {e}")
+    except Exception as err:
+        print(f"Unexpected error: {err}")
 
     # Attempt to save the updated tasks to tasks.json
     try:
