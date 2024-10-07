@@ -2,6 +2,7 @@
 
 from load_tasks import load_tasks
 from update_tasks import update_tasks
+from view_tasks import view_tasks
 from add_task import add_task
 from mark_task import mark_task
 from delete_task import delete_task
@@ -15,7 +16,7 @@ def manage_tasks():
     except FileNotFoundError:
         tasks = {}
 
-    # Auto update tasks with 'completed' field after loading
+    # Auto update tasks with 'completed' field if missing
     update_tasks()
 
     while True:
@@ -29,21 +30,7 @@ def manage_tasks():
         choice = input("Enter your choice (1/2/3/4/5): ").strip()
 
         if choice == "1":
-            print("Current Tasks:")
-            if tasks:
-                for title, details in tasks.items():
-                    status = (
-                        "Completed" if details.get("completed", False) else "Incomplete"
-                    )
-                    print(
-                        f"\nTitle: {title}\n"
-                        f"Description: {details["description"]}\n"
-                        f"Due Date: {details["due_date"]}\n"
-                        f"Priority: {details["priority"]}\n"
-                        f"Status: {status}"
-                    )
-            else:
-                print("No tasks found.")
+            view_tasks(tasks)
         elif choice == "2":
             add_task(tasks)
             save_tasks(tasks)
