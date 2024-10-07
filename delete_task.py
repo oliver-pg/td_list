@@ -4,7 +4,7 @@ import json
 
 
 def delete_task(tasks):
-    """Logic for deleted tasks."""
+    """Logic for deleting tasks."""
     if not tasks:
         print("No tasks available to delete.")
         return
@@ -18,17 +18,34 @@ def delete_task(tasks):
     try:
         task_index = int(task_num) - 1
         task_title = list(tasks.keys())[task_index]
-        confirm = input(
-            f"Are you sure you want to delete '{task_title}'? (y/n): "
-        ).strip()
+
+        confirm = (
+            input(f"Are you sure you want to delete '{task_title}'? (y/n): ")
+            .strip()
+            .lower()
+        )
 
         if confirm == "y":
             del tasks[task_title]
             print(f"Task '{task_title}' deleted.")
-        else:
+        elif confirm == "n":
             print("Task deletion canceled.")
-    except (ValueError, IndexError):
-        print("Invalid task number. Please try again.")
+        else:
+            print("Invalid input. Task deletion canceled.")
 
-    with open("tasks.json", "w", encoding="utf-8") as json_file:
-        json.dump(tasks, json_file, indent=4)
+    except ValueError:
+        print("Invalid input. Please enter a valid number.")
+    except IndexError:
+        print("Invalid task number. Please try again.")
+    except KeyError:
+        print("Error: Task not found.")
+    except Exception as e:
+        print(f"Unexpected error: {e}")
+
+    # Attempt to save the updated tasks to tasks.json
+    try:
+        with open("tasks.json", "w", encoding="utf-8") as json_file:
+            json.dump(tasks, json_file, indent=4)
+        print("Tasks updated successfully.")
+    except IOError as err:
+        print(f"Error saving tasks: {err}")

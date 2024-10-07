@@ -4,5 +4,11 @@
         "due_date": "2024-10-7",
         "priority": "Very high",
         "completed": false
+    },
+    "Test": {
+        "description": "Mark task as completed.",
+        "due_date": "2024-10-7",
+        "priority": "High",
+        "completed": false
     }
 }
