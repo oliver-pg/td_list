@@ -22,25 +22,36 @@ def manage_tasks():
     while True:
         print("\nTask Manager Menu:")
         print("1. [View Tasks]")
-        print("2. [Add Task]")
-        print("3. [Mark Task Complete]")
-        print("4. [Delete Task]")
-        print("5. [Exit]")
+        print("2. [View Tasks (Sorted)]")
+        print("3. [Add Task]")
+        print("4. [Mark Task Complete]")
+        print("5. [Delete Task]")
+        print("6. [Exit]")
 
-        choice = input("Enter your choice (1/2/3/4/5): ").strip()
+        choice = input("Enter your choice (1/2/3/4/5/6): ").strip()
 
         if choice == "1":
             view_tasks(tasks)
         elif choice == "2":
+            sort_choice = input("Sort by: 1. Due Date 2. Priority 3. Status: ").strip()
+            if sort_choice == "1":
+                view_tasks(tasks, sort_by="due_date")
+            elif sort_choice == "2":
+                view_tasks(tasks, sort_by="priority")
+            elif sort_choice == "3":
+                view_tasks(tasks, sort_by="status")
+            else:
+                print("Invalid choice.")
+        elif choice == "3":
             add_task(tasks)
             save_tasks(tasks)
-        elif choice == "3":
+        elif choice == "4":
             mark_task(tasks)
             save_tasks(tasks)
-        elif choice == "4":
+        elif choice == "5":
             delete_task(tasks)
             save_tasks(tasks)
-        elif choice == "5":
+        elif choice == "6":
             print("Exiting task manager.")
             save_tasks(tasks)
             return False

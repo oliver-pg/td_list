@@ -10,5 +10,23 @@
         "due_date": "2024-10-7",
         "priority": "High",
         "completed": true
+    },
+    "Test2": {
+        "description": "Sort tasks by date.",
+        "due_date": "2024-10-6",
+        "priority": "High",
+        "completed": false
+    },
+    "Test3": {
+        "description": "Sort tasks by priority.",
+        "due_date": "2024-10-7",
+        "priority": "Medium",
+        "completed": false
+    },
+    "Test4": {
+        "description": "Sort tasks by status(Complete, Incomplete).",
+        "due_date": "2024-10-8",
+        "priority": "Low",
+        "completed": false
     }
 }
