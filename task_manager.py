@@ -4,6 +4,7 @@ from load_tasks import load_tasks
 from update_tasks import update_tasks
 from view_tasks import view_tasks
 from add_task import add_task
+from edit_task import edit_task
 from mark_task import mark_task
 from delete_task import delete_task
 from save_tasks import save_tasks
@@ -15,9 +16,10 @@ def display_menu():
     print("1. [View Tasks]")
     print("2. [View Tasks (Sorted)]")
     print("3. [Add Task]")
-    print("4. [Mark Task Complete]")
-    print("5. [Delete Task]")
-    print("6. [Exit]")
+    print("4. [Edit Task]")
+    print("5. [Mark Task Complete]")
+    print("6. [Delete Task]")
+    print("7. [Exit]")
 
 
 def handle_sorting(tasks):
@@ -60,12 +62,15 @@ def manage_tasks():
             add_task(tasks)
             save_tasks(tasks)
         elif choice == "4":
-            mark_task(tasks)
+            edit_task(tasks)
             save_tasks(tasks)
         elif choice == "5":
-            delete_task(tasks)
+            mark_task(tasks)
             save_tasks(tasks)
         elif choice == "6":
+            delete_task(tasks)
+            save_tasks(tasks)
+        elif choice == "7":
             print("Exiting task manager.")
             save_tasks(tasks)
             return
