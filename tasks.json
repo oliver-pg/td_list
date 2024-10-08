@@ -27,6 +27,6 @@
         "description": "Sort tasks by status(Complete, Incomplete).",
         "due_date": "2024-10-8",
         "priority": "Low",
-        "completed": false
+        "completed": true
     }
 }

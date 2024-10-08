@@ -1,7 +1,5 @@
 """Mark a task in tasks.json as complete."""
 
-import json
-
 
 def mark_task(tasks):
     """Logic for marking tasks as complete."""
@@ -27,7 +25,3 @@ def mark_task(tasks):
     except (ValueError, IndexError):
         print("Invalid task number. Please try again.")
         return
-
-        # Save marked tasks
-        with open("tasks.json", "w", encoding="utf-8") as json_file:
-            json.dump(tasks, json_file, indent=4)
