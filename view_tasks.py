@@ -26,7 +26,7 @@ def view_tasks(tasks, sort_by=None):
         )
     else:
         sorted_tasks = tasks.items()
-    print(f"Current Tasks (sorted by {sort_by if sort_by else 'default order'}):")
+    print(f"\nCurrent Tasks (sorted by {sort_by if sort_by else 'default order'}):")
     for title, details in sorted_tasks:
         status = "Completed" if details.get("completed", False) else "Incomplete"
         print(

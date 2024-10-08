@@ -1,4 +1,4 @@
-"""Edit an existing task in tasks.json."""
+"""Edit an existing task in tasks.json through task_manager.py."""
 
 
 def edit_task(tasks):
